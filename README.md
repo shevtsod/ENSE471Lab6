@@ -8,6 +8,6 @@ My solutions to lab 6 in ENSE 471 - User Interface Programming
 The project should be built using Android Studio.
 
 ## Details
-### Lab 5  - Android Studio - Login Screen
+### Lab 6  - Android Studio - Calculator
 
 Created a simple Android application for a calculator UI (not the functionality, only the interface).
