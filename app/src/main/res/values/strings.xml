@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">ENSE471Lab6</string>
+    <string name="app_name">ENSE471 Lab 6 - Calculator</string>
+    <string name="undo">Undo</string>
+    <string name="del">DEL</string>
+    <string name="open_bracket">(</string>
+    <string name="closed_bracket">)</string>
+    <string name="currentvalue">currentValue</string>
+    <string name="expression">expression</string>
+    <string name="op_plus">+</string>
+    <string name="op_minus">-</string>
+    <string name="op_mult">*</string>
+    <string name="op_div">/</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="radix">.</string>
+    <string name="_5">5</string>
+    <string name="_4">4</string>
+    <string name="_6">6</string>
+    <string name="equals">=</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_0">0</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_calculator"
     android:layout_width="match_parent"
@@ -10,8 +11,355 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.shevtsod.ense471lab6.CalculatorActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="2dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/expression"
+                android:layout_width="match_parent"
+                android:id="@+id/expression"
+                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                android:textAlignment="textEnd"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginTop="16dp"
+                android:scrollHorizontally="true"
+                android:ellipsize="start"
+                android:maxLines="1"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:text="@string/currentvalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/currentValue"
+                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                android:textAlignment="textEnd"
+                android:textSize="36sp"
+                android:paddingTop="32dp"
+                android:paddingBottom="8dp"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:scrollHorizontally="true"
+                android:ellipsize="start"
+                android:maxLines="1"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="4"
+            android:rowCount="6"
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_input_delete"
+                android:id="@+id/btn_undo"
+                android:contentDescription="@string/undo"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:onClick="undoPressed" />
+
+            <Button
+                android:text="@string/del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_del"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="deletePressed"/>
+
+            <Button
+                android:text="@string/open_bracket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_open_bracket"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="openBracketPressed"/>
+
+            <Button
+                android:text="@string/closed_bracket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_close_bracket"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="closedBracketPressed"/>
+
+            <Button
+                android:text="@string/op_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_plus"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="operatorButtonPressed"/>
+
+            <Button
+                android:text="@string/op_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_minus"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="operatorButtonPressed"/>
+
+            <Button
+                android:text="@string/op_mult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_mult"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="operatorButtonPressed"/>
+
+            <Button
+                android:text="@string/op_div"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_div"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="operatorButtonPressed" />
+
+            <Button
+                android:text="@string/_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_7"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_8"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_9"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/radix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_radix"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="radixPressed"/>
+
+            <Button
+                android:text="@string/_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_5"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_6"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/equals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_equals"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:layout_rowSpan="3"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="equalsPressed"/>
+
+            <Button
+                android:text="@string/_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed" />
+
+            <Button
+                android:text="@string/_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+
+            <Button
+                android:text="@string/_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_0"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_columnSpan="3"
+                android:textSize="18sp"
+                android:typeface="monospace"
+                android:fontFamily="sans-serif"
+                android:onClick="numberButtonPressed"/>
+        </GridLayout>
+
+    </LinearLayout>
 </RelativeLayout>
